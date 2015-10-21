@@ -3,12 +3,12 @@
 python_call(File, Function, Args, Result) :-
     term_string(Args, SArgs),
     atomic_list_concat(['from ', File, ' import *;print(', Function, '(''', SArgs, '''))'], Command),
-    process_create('C:\\Python27\\python', ['-c', Command], [stdout(pipe(Out))]),
+    process_create(path('python'), ['-c', Command], [stdout(pipe(Out))]),
     read_lines(Out, Lines), last(Lines, Result).
 
 python_call(File, Function, Result) :-
     atomic_list_concat(['from ', File, ' import *;print(', Function, '())'], Command),
-    process_create('C:\\Python27\\python', ['-c', Command], [stdout(pipe(Out))]),
+    process_create(path('python'), ['-c', Command], [stdout(pipe(Out))]),
     read_lines(Out, Lines), last(Lines, Result).
 
 read_lines(Out, Lines) :-
