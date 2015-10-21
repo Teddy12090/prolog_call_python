@@ -1,13 +1,19 @@
-# import library
+# How to use
 
-`:- use_module(python_lib).`
+1. Import library in prolog: `:- use_module(python_lib).`
+    - Prolog file is in the same folder as *python_lib.pl*.
+2. There is some example as follows:
 
-# call python function from prolog code
+> run **hello_world.py** and call **Result = say_hello()**
 
-`:- python_call('hello_world', 'say_hello', Result).`
+``` prolog
+?- python_call('hello_world', 'say_hello', Result).
+Result = hello.
+```
 
-call the **say_hello** function in **hello_word**.py and store the return value into the **Result**.
+> run **hello_world.py** and call **Result = say('good')**
 
-`:- python_call('hello_world', 'say', 'good', Result).`
-
-call the **say** function with a argument **good** in **hello_word**.py and store the return value into the **Result**.
+``` prolog
+?- python_call('hello_world', 'say', 'good', Result).
+Result = good.
+```
