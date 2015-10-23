@@ -3,7 +3,7 @@
 ## Import module
 
 ``` prolog
-:- assert(library_directory('../prolog-call-python')).
+user:file_search_path(library, '../prolog_call_python').
 :- use_module(library(python_lib)).
 ```
 
